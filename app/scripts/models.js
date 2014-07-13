@@ -1,7 +1,10 @@
 //models
-var item = Backbone.Model.extend({
+var task = Backbone.Model.extend({
 	defaults: {
-		idAttribute: '_id'
+		idAttribute: '_id',
+		done: false,
+		title: "",
+
 	}
 });
 

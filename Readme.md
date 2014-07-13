@@ -1,3 +1,3 @@
-## Yo, I'm a Readme
+## A simple Backbone.js To-Do app
 
-You should probably update me so people looking at your code have an idea what it is being used for :)
+This project is built with backbone.js and handlebars templates.

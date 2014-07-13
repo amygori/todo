@@ -1,5 +1,5 @@
 //collections
-var items = Backbone.Collection.extend({
-	model: item,
+var tasks = Backbone.Collection.extend({
+	model: task,
 	url: "http://tiny-pizza-server.herokuapp.com/collections/examples"
 });
