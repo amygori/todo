@@ -26,7 +26,10 @@
   <div class="container">
       <section id="todoApp">
           <h1>What do you need to do today?</h1>
-              <input id="newTask" placeholder="Add a new task to your list." autofocus>
+            <form id="todoSubmit">
+                <input id="newTask" placeholder="Add a new task to your list." type="text" autofocus />
+                <button>Add it</button>
+            </form>
       </section>    
       <section id="taskList">
         <ul id="todo-list"></ul>
@@ -50,10 +53,10 @@
     <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
-        <script src="scripts/main.js"></script>
         <script src="scripts/models.js"></script>
         <script src="scripts/collection.js"></script>
         <script src="scripts/views.js"></script>
+        <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>
 </html>

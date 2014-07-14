@@ -1,14 +1,16 @@
 //models
-var app = app || {};
 
-var app.Task = Backbone.Model.extend({
-	defaults: {
-		title: ""
-		idAttribute: '_id',
+var Task = Backbone.Model.extend({
+	defaults: function() {
+		return {
+		title: "",
 		done: false,
-		urlRoot: "http://tiny-pizza-server.herokuapp.com/collections/amy",
-		//order: Tasks.nextOrder(),	
-	}
+		//order: Tasks.nextOrder(),
+		}
+	},
+	urlRoot: "http://tiny-pizza-server.herokuapp.com/collections/blargh",
+	idAttribute: '_id'
 });
 
-app.Task.save();
+var task = new Task({title: $("newTask").val()});
+task.save();

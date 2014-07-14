@@ -1,34 +1,31 @@
 //views  
-var app = app || {};
-var ENTER_KEY = 13;
 
-(function () {
+var ENTER_KEY = 13;
+var ListView;
+var AppView;
+
+(function ($) {
 	'use strict';
 
 //view for the individual tasks 
 	ListView = Backbone.View.extend({
 		tagName: 'li',
+		model: new Task,
+		initialize: function(){
+			this.template = Handlebars.compile($('#template').html()); 
+			//this.listenTo(this.model, 'change', this.render);
+			//	this.listenTo(this.model, 'destroy', this.remove);
+		},
 	    render: function(){
-	        var template = Handlebars.compile($('#todo-list').html()); 
-	        var rendered = template({app.tasks:this.model.toJSON()});
-	        this.$el.append(rendered); //should this be .html instead of .append?
+	        var rendered = this.template(this.model.toJSON());
+	        this.$el.html(rendered); //should this be .html instead of .append?
 	        this.$el.toggleClass('done', this.model.get('done'));
 	        return this; 
 		},
-		initialize: function(){
-			this.listenTo(this.model, 'change', this.render);
-			//	this.listenTo(this.model, 'destroy', this.remove);
-		},
-		events: {
-        	'keypress #newTask': 'createNewTask'
-      	},
-      	createNewTask: function(e){
-      		if(e.which === ENTER_KEY){
-      			this.close();
-      			return this;
-      		}
-      	},
-
+		
+		
+      	
+      	
 	});
 
 	
@@ -37,10 +34,10 @@ var ENTER_KEY = 13;
 		el: '#todoApp',
 		initialize: function(){
         	this.input = this.$('#newTask');
-        	app.tasks.on('add', this.addAll, this);
-        	app.tasks.on('reset', this.addAll, this);
-        	app.tasks.fetch();
-        	this.listenTo(app.tasks, 'add', this.addTask);
+        	tasks.on('add', this.addAll, this);
+        	tasks.on('reset', this.addAll, this);
+        	tasks.fetch();
+        	this.listenTo(tasks, 'add', this.addTask);
 		},
 		events: {
         	'keypress #newTask': 'createNewTask'
@@ -51,7 +48,7 @@ var ENTER_KEY = 13;
       			this.close();
       			return this;
       		}
-        	app.tasks.create(this.newAttributes());
+        	tasks.create(this.newAttributes());
         	this.input.val(''); 
       	},
       	addTask: function (task) {
@@ -60,7 +57,7 @@ var ENTER_KEY = 13;
       	},
       	addAll: function(){
         	this.$('#todo-list').html(''); 
-        	app.tasks.each(this.addOne, this);
+        	tasks.each(this.addOne, this);
       	},
       	newAttributes: function(){
         	return {
@@ -69,6 +66,7 @@ var ENTER_KEY = 13;
         	}
       	}
 	});
-})();
+})(jQuery);
 
-appview = new AppView();
+
+var appview = new AppView();
