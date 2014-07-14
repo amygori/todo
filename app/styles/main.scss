@@ -1,15 +1,51 @@
  // Bourbon & Neat
 @import '../../bower_components/bourbon/dist/bourbon';
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,900italic|Josefin+Sans|Amatic+SC|Alice);
+
+$bluegray: #6C7A89;
+$marble: #F2F1EF;
+$header-font: "Playfair Display", serif;
+$header-font2: "Amatic SC", sans-serif;
+$task-font: "Alice", serif;
+$task-font2: "Josefin Sans", sans-serif;
 
 // Custom Styles
 body {
-  background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+  background-color: $marble;
 }
 
-.todo-app {
+.container {
+  @include outer-container;
+  background-color: $bluegray;
+  padding: 25px;
+  margin-top: 50px;
+  border: solid 2px $marble;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2),
+        0 25px 50px 0 rgba(0, 0, 0, 0.15);
+};
+
+h1 {
+  font-family: $header-font2;
+  color: $marble;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  font-size: 3em;
+
+}
+#taskList {
+  @include span-columns(8);
+}
+
+#todoapp input::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+#todoapp input::-moz-placeholder {
+  font-style: italic;
+  color: $bluegray;
+}
+
+#todoapp {
   margin: 50px auto 0 auto;
   width: 600px;
   font-size: 18px;

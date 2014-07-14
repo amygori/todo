@@ -23,19 +23,23 @@
     <!-- endbuild -->
   </head>
   <body>
-    <section id="createTask">
-        <h1>What do you need to do today?</h1>
-            <input id="newTask" placeholder="Add a new task to your list." autofocus>
-    </section>    
-    <section id="taskList">
+  <div class="container">
+      <section id="todoApp">
+          <h1>What do you need to do today?</h1>
+              <input id="newTask" placeholder="Add a new task to your list." autofocus>
+      </section>    
+      <section id="taskList">
+        <ul id="todo-list"></ul>
+      </section>
+      <section>    
         <script id="template" type="text/x-handlebars-template">
-          <div class="list">
-          <input class="toggle" type="checkbox">
-            <ul id="todo-list"></ul>
-          </div>
+            <div class="list">
+            <input class="toggle" type="checkbox">
+              <label>{{title}}</label>
+            </div>
         </script>
-    </section>
-
+      </section>
+  </div>
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
@@ -49,6 +53,7 @@
         <script src="scripts/main.js"></script>
         <script src="scripts/models.js"></script>
         <script src="scripts/collection.js"></script>
+        <script src="scripts/views.js"></script>
         <!-- endbuild -->
 </body>
 </html>

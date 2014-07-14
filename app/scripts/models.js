@@ -1,5 +1,5 @@
 //models
-var app = {};
+var app = app || {};
 
 var app.Task = Backbone.Model.extend({
 	defaults: {
