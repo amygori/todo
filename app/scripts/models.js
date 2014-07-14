@@ -12,5 +12,4 @@ var Task = Backbone.Model.extend({
 	idAttribute: '_id'
 });
 
-var task = new Task({title: $("newTask").val()});
-task.save();
+
