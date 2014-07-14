@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <title>todo</title>
+    <title>To Do</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css styles/vendor.css -->
@@ -23,14 +23,18 @@
     <!-- endbuild -->
   </head>
   <body>
-
-    <div class="todo-app">
-        <script id="todo-list" type="text/x-handlebars-template">
-          <ul>
-            <li>{{ task.title }}</li>
-          </ul>
+    <section id="createTask">
+        <h1>What do you need to do today?</h1>
+            <input id="newTask" placeholder="Add a new task to your list." autofocus>
+    </section>    
+    <section id="taskList">
+        <script id="template" type="text/x-handlebars-template">
+          <div class="list">
+          <input class="toggle" type="checkbox">
+            <ul id="todo-list"></ul>
+          </div>
         </script>
-    </div>
+    </section>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
