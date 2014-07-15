@@ -59,11 +59,11 @@ var tasks = new Tasks();
       			return this;
       		}
 		},*/
-		remove: function(e){
+		/*remove: function(e){
 			var isDone = $(e.target).parent().attr('done', true);
 			var item = this.collection.get(isDone);	
 			item.remove();	
-		}
+		}*/
 	});
 
 	
@@ -83,6 +83,10 @@ var tasks = new Tasks();
 			});*/
 			return this;
 		},
+		/*remove: function() {
+			_.invoke(tasks.done(), "destroy");
+			return false;
+		},*/
 	});
 
 
