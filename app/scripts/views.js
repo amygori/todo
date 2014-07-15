@@ -19,7 +19,7 @@ var tasks = new Tasks();
 		},
 		initialize: function() {
     	 this.listenTo(this.collection, 'add', this.render);
-    	 this.listenTo(this.collection, 'remove', this.remove);
+    	 this.listenTo(this.collection, 'destroy', this.remove);
     	 this.collection.fetch();
  	    },
 		events: {
@@ -59,11 +59,9 @@ var tasks = new Tasks();
       			return this;
       		}
 		},*/
-		
-	    
 		remove: function(e){
-			var id = $(e.target).parent().attr('id');
-			var item = this.model.get(id);	
+			var isDone = $(e.target).parent().attr('done', true);
+			var item = this.collection.get(isDone);	
 			item.remove();	
 		}
 	});

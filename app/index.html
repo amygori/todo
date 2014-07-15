@@ -8,6 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css styles/vendor.css -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- bower:css -->
     <link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
     <!-- endbower -->
@@ -37,8 +38,8 @@
           <ul class="list">
             {{#each tasks}}
             
-              <li id="{{_id}}"><input class="toggle" type="checkbox">{{title}}</li>
-              <button class="remove">delete</button>
+              <li id="{{_id}}"><input class="toggle" type="checkbox">{{title}}<button class="remove"><i class="fa fa-trash-o"></i></button></li>
+
             {{/each}}
           </ul>
         

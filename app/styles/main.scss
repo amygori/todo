@@ -39,6 +39,12 @@ button {
   padding: 5px;
   margin: 0 0 0 5px;
 }
+button.remove {
+  font-size: .8em;
+  padding: 0px;
+  background-color: $bluegray;
+  color: $marble;
+}
 
 #taskList {
   @include span-columns(8);
@@ -50,7 +56,8 @@ button {
   list-style-type: none;
 }
 .list li {
-  padding: 0 0 0 5px;
+  padding: 5px;
+  margin-left: 10px;  
 }
 
 #todoapp input::-webkit-input-placeholder {
