@@ -8,19 +8,23 @@ var tasks = new Tasks();
 
 //view for the individual tasks 
 	ListView = Backbone.View.extend({
-		tagName: 'li',
+		//tagName: 'li',
 		model: new Task, //the model
 		events: {
 			'click .edit' : 'edit',
 			'click .delete' : 'delete',
 			'blur .title' : 'close',
-			'keypress .title' : 'enterSubmit'
+			'keypress .title' : 'enterSubmit',
+			'click .toggle': 'toggleDone',
 		},
-		initialize: function(){
-			this.template = Handlebars.compile($('#template').html()); 
-			//this.listenTo(this.model, 'change', this.render);
-			//	this.listenTo(this.model, 'destroy', this.remove);
-		},
+		// initialize: function(){
+		// 	//this.listenTo(this.model, 'change', this.render);
+		// 	//	this.listenTo(this.model, 'destroy', this.remove);
+		// },
+		initialize: function() {
+    	 this.listenTo(this.collection, 'add', this.render);
+    	 this.collection.fetch();
+ 	    },
 		edit: function(e){
 			e.preventDefault();
 			this.$('.title').attr('editable', true).focus();
@@ -35,15 +39,19 @@ var tasks = new Tasks();
 			tasks.remove(this.model);
 		},
 		enterSubmit: function(e){
-			if(e.keycode === ENTER_KEY){
+			if(e.which === ENTER_KEY){
       			this.close();
       			return this;
       		}
 		},
+		toggleDone: function(){
+			this.model.toggle();
+		},
 	    render: function(){
-	        var rendered = this.template(this.model.toJSON());
+	        this.template = Handlebars.compile($('#template').html()); 
+	        var rendered = this.template({tasks: this.collection.toJSON()});
 	        this.$el.html(rendered); //should this be .html instead of .append?
-	        this.$el.toggleClass('done', this.model.get('done'));
+	        //this.$el.toggleClass('done', this.model.get('done'));
 	        return this; 
 		}		
 	});
@@ -59,13 +67,14 @@ var tasks = new Tasks();
 		render: function(){
 			var self = this;
 			self.$el.html('');
-			_.each(this.model.toArray(), function(task, i){
+			/*_.each(this.model.toArray(), function(task, i){
 				self.$el.append((new ListView({model: task})).render().$el);
-			});
+
+			});*/
 			return this;
 		},
 	});
 
 
 
-var appview = new AppView();
+

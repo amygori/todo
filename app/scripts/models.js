@@ -9,7 +9,12 @@ var Task = Backbone.Model.extend({
 		}
 	},
 	urlRoot: "http://tiny-pizza-server.herokuapp.com/collections/blargh",
-	idAttribute: '_id'
+	idAttribute: '_id',
+	toggle: function(){
+		this.save({
+			done: !this.get('done')
+		});
+	}
 });
 
 

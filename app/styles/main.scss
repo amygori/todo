@@ -44,6 +44,11 @@ button {
   @include span-columns(8);
 }
 
+.list {
+  font-family: $task-font;
+  font-size: 1.5em;
+}
+
 #todoapp input::-webkit-input-placeholder {
   font-style: italic;
 }

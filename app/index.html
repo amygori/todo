@@ -30,20 +30,19 @@
                 <input id="newTask" placeholder="Add a new task to your list." type="text" autofocus />
                 <button>Add it</button>
             </form>
-      </section>    
-       
-      <section>    
+      </section> 
+      <section id="taskList">       
         <script id="template" type="text/x-handlebars-template">
+        {{#each tasks}}
             <ul class="list">
-            <input class="toggle" type="checkbox">
-              <label>{{title}}</label>
+            <input id="toggle" type="checkbox">
+              {{title}}
             </ul>
-
-            <a href="#">Edit a task</a>
-            <a href="#">Delete a task</a>
+        {{/each}}
+            //<a href="#">Edit a task</a>
+            //<a href="#">Delete a task</a>
         </script>
-      </section>
-      <section id="taskList">
+      
         <div id="todo-list"></div>
       </section>
   </div>
