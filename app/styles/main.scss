@@ -47,6 +47,10 @@ button {
 .list {
   font-family: $task-font;
   font-size: 1.5em;
+  list-style-type: none;
+}
+.list li {
+  padding: 0 0 0 5px;
 }
 
 #todoapp input::-webkit-input-placeholder {

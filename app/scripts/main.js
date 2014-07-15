@@ -15,7 +15,7 @@ $(document).ready(function (){
 		var task = new Task({title: $("#newTask").val()});
 		task.save(); //instantiate new task with user input
 		tasks.add(task);
-		console.log(tasks.toJSON());
+		//console.log(tasks.toJSON());
 		return false; 
 	});
 });

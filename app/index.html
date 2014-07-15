@@ -33,12 +33,15 @@
       </section> 
       <section id="taskList">       
         <script id="template" type="text/x-handlebars-template">
-        {{#each tasks}}
-            <ul class="list">
-            <input id="toggle" type="checkbox">
-              {{title}}
-            </ul>
-        {{/each}}
+        
+          <ul class="list">
+            {{#each tasks}}
+            
+              <li id="{{_id}}"><input class="toggle" type="checkbox">{{title}}</li>
+              <button class="remove">delete</button>
+            {{/each}}
+          </ul>
+        
             //<a href="#">Edit a task</a>
             //<a href="#">Delete a task</a>
         </script>

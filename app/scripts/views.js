@@ -9,23 +9,38 @@ var tasks = new Tasks();
 //view for the individual tasks 
 	ListView = Backbone.View.extend({
 		//tagName: 'li',
-		model: new Task, //the model
+		model: Task,
+		render: function(){
+	        this.template = Handlebars.compile($('#template').html()); 
+	        var rendered = this.template({tasks: this.collection.toJSON()});
+	        this.$el.html(rendered); //should this be .html instead of .append?
+	        //this.$el.toggleClass('done', this.model.get('done'));
+	        return this; 
+		},
+		initialize: function() {
+    	 this.listenTo(this.collection, 'add', this.render);
+    	 this.listenTo(this.collection, 'remove', this.remove);
+    	 this.collection.fetch();
+ 	    },
 		events: {
-			'click .edit' : 'edit',
-			'click .delete' : 'delete',
-			'blur .title' : 'close',
-			'keypress .title' : 'enterSubmit',
-			'click .toggle': 'toggleDone',
+			//'click .edit' : 'edit',
+			'click .remove' : 'remove',
+			//'blur .title' : 'close',
+			//'keypress .title' : 'enterSubmit',
+			'click .toggle': 'toggleDone'
 		},
 		// initialize: function(){
 		// 	//this.listenTo(this.model, 'change', this.render);
 		// 	//	this.listenTo(this.model, 'destroy', this.remove);
 		// },
-		initialize: function() {
-    	 this.listenTo(this.collection, 'add', this.render);
-    	 this.collection.fetch();
- 	    },
-		edit: function(e){
+		toggleDone: function(e){
+			var id = $(e.target).parent().attr('id');
+			var item = this.collection.get(id);
+			item.toggle();
+			console.log(item.attributes);
+		},
+		
+		/*edit: function(e){
 			e.preventDefault();
 			this.$('.title').attr('editable', true).focus();
 		},
@@ -43,17 +58,14 @@ var tasks = new Tasks();
       			this.close();
       			return this;
       		}
-		},
-		toggleDone: function(){
-			this.model.toggle();
-		},
-	    render: function(){
-	        this.template = Handlebars.compile($('#template').html()); 
-	        var rendered = this.template({tasks: this.collection.toJSON()});
-	        this.$el.html(rendered); //should this be .html instead of .append?
-	        //this.$el.toggleClass('done', this.model.get('done'));
-	        return this; 
-		}		
+		},*/
+		
+	    
+		remove: function(e){
+			var id = $(e.target).parent().attr('id');
+			var item = this.model.get(id);	
+			item.remove();	
+		}
 	});
 
 	
