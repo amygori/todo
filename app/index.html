@@ -31,16 +31,20 @@
                 <button>Add it</button>
             </form>
       </section>    
-      <section id="taskList">
-        <div id="todo-list"></div>
-      </section> 
+       
       <section>    
         <script id="template" type="text/x-handlebars-template">
             <ul class="list">
             <input class="toggle" type="checkbox">
               <label>{{title}}</label>
             </ul>
+
+            <a href="#">Edit a task</a>
+            <a href="#">Delete a task</a>
         </script>
+      </section>
+      <section id="taskList">
+        <div id="todo-list"></div>
       </section>
   </div>
     <!-- build:js scripts/vendor.js -->

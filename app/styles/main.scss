@@ -32,6 +32,14 @@ h1 {
   font-size: 3em;
 
 }
+button {
+  background-color: $marble;
+  color: $bluegray;
+  border-radius: 5px; 
+  padding: 5px;
+  margin: 0 0 0 5px;
+}
+
 #taskList {
   @include span-columns(8);
 }

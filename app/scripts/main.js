@@ -1,4 +1,4 @@
-(function ($) {
+//(function ($) {
 //instantiate collection
 	var tasks = new Tasks();
 
@@ -10,4 +10,4 @@
 			return false; 
 		});
 	});
-})(jQuery);
+//})(jQuery);
