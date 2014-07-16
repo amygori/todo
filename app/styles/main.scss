@@ -48,6 +48,7 @@ button.remove {
 p {
   font-family: $task-font;
   font-size: 1.5em;
+  color: $marble;
 }
 #taskList {
   @include span-columns(8);

@@ -34,7 +34,7 @@
       </section> 
       <section id="taskList">       
         <script id="template" type="text/x-handlebars-template">
-        <p><button class="remove"><i class="fa fa-trash-o"></i></button> Delete finished stuff.</p>
+        
           <ul class="list">
             {{#each tasks}}
             
@@ -42,9 +42,8 @@
 
             {{/each}}
           </ul>
-        
-            //<a href="#">Edit a task</a>
-            //<a href="#">Delete a task</a>
+          <p><button class="remove"><i class="fa fa-trash-o"></i></button> Delete finished stuff.</p>
+            
         </script>
       
         <div id="todo-list"></div>
