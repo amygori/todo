@@ -29,10 +29,6 @@ var tasks = new Tasks();
 			//'keypress .title' : 'enterSubmit',
 			'click .toggle': 'toggleDone'
 		},
-		// initialize: function(){
-		// 	//this.listenTo(this.model, 'change', this.render);
-		// 	//	this.listenTo(this.model, 'destroy', this.remove);
-		// },
 		toggleDone: function(e){
 			var id = $(e.target).parent().attr('id');
 			var item = this.collection.get(id);
@@ -40,30 +36,14 @@ var tasks = new Tasks();
 			console.log(item.attributes);
 		},
 		
-		/*edit: function(e){
-			e.preventDefault();
-			this.$('.title').attr('editable', true).focus();
-		},
-		close: function(e){
-			var title = this.$('.title').text();
-			this.model.set('title', title);
-			this.$('.title').removeAttr('editable');
-		},
-		delete: function(e){
-			e.preventDefault();
-			tasks.remove(this.model);
-		},
-		enterSubmit: function(e){
-			if(e.which === ENTER_KEY){
-      			this.close();
-      			return this;
-      		}
-		},*/
-		/*remove: function(e){
-			var isDone = $(e.target).parent().attr('done', true);
-			var item = this.collection.get(isDone);	
-			item.remove();	
-		}*/
+		remove: function(e){
+			var doneItems = this.collection.where({done: true});
+			_.each(doneItems, function (item) {
+				item.destroy({success: function (model, response){
+					window.location.reload();
+				}});
+			})
+		}
 	});
 
 	
@@ -83,10 +63,7 @@ var tasks = new Tasks();
 			});*/
 			return this;
 		},
-		/*remove: function() {
-			_.invoke(tasks.done(), "destroy");
-			return false;
-		},*/
+		
 	});
 
 

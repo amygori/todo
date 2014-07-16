@@ -34,11 +34,11 @@
       </section> 
       <section id="taskList">       
         <script id="template" type="text/x-handlebars-template">
-        
+        <p><button class="remove"><i class="fa fa-trash-o"></i></button> Delete finished stuff.</p>
           <ul class="list">
             {{#each tasks}}
             
-              <li id="{{_id}}"><input class="toggle" type="checkbox">{{title}}<button class="remove"><i class="fa fa-trash-o"></i></button></li>
+              <li id="{{_id}}"><input class="toggle" type="checkbox">{{title}}</li>
 
             {{/each}}
           </ul>
