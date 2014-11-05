@@ -22,7 +22,7 @@
   "gulp-prompt": "^0.1.1",
   "gulp-size": "^0.4.0",
   "gulp-uglify": "^0.3.0",
-  "gulp-useref": "^0.4.2",
+  "gulp-useref": "^0.6.0",
   "lazypipe": "^0.2.1",
   "opn": "^0.1.1",
   "rimraf": "^2.2.8",

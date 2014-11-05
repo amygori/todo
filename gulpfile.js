@@ -43,11 +43,11 @@ gulp.task('extras', function () {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('clean', function (cb) {
+/*gulp.task('clean', function (cb) {
   rimraf('.tmp', function () {
     rimraf('dist', cb);
   });
-});
+});*/
 
 gulp.task('connect', function () {
   var connect = require('connect');
@@ -105,9 +105,9 @@ gulp.task('build', ['html', 'images', 'extras'], function () {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
-gulp.task('default', ['clean'], function () {
+/*gulp.task('default', ['clean'], function () {
   gulp.start('build');
-});
+});*/
 
 // Push a subtree from our `dist` folder
 gulp.task('deploy', function() {

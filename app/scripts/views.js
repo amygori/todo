@@ -62,7 +62,10 @@ var tasks = new Tasks();
 
 			});*/
 			return this;
+			this.input.val('');
 		},
+
+
 		
 	});
 

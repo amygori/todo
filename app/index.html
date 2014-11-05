@@ -10,7 +10,7 @@
     <!-- build:css styles/vendor.css -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- bower:css -->
-    <link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
+    <link rel="stylesheet" href="../_bower_components/normalize-css/normalize.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -38,7 +38,7 @@
           <ul class="list">
             {{#each tasks}}
             
-              <li id="{{_id}}"><input class="toggle" type="checkbox">{{title}}</li>
+              <li id="{{_id}}"><input class="toggle" type="checkbox"> {{title}} </li>
 
             {{/each}}
           </ul>
@@ -62,6 +62,7 @@
         <script src="scripts/models.js"></script>
         <script src="scripts/collection.js"></script>
         <script src="scripts/views.js"></script>
+        <!--<script src="scripts/router.js"></script> -->
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>
